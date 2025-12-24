@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import PropsBasedComposition from "./24-12-2025/Component_Composition/specalization_(props-based component)";
+import Parent from "./24-12-2025/Props/unidirectional_flow/child_to_parent(callback)";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <PropsBasedComposition />
+    <Parent />
   </StrictMode>
 );
