@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./25-12-2025/react_hooks/useState_hook";
+import App from "./25-12-2025/react_hooks/useEffect_3_hook";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
