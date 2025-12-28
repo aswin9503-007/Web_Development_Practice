@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./27-12-2025/react_router/HashRouter/App";
+import Counter from "./button";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <Counter />
   </StrictMode>
 );
