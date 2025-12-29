@@ -1,9 +1,25 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Counter from "./button";
+import App from "./29-12-2025/Lazy_Load/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Counter />
+    <App />
   </StrictMode>
 );
+
+// For Redux 
+
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import { Provider } from "react-redux";
+// import App from "./29-12-2025/Redux-React/app";
+// import store from "./29-12-2025/Redux-React/store";
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>
+// );
+
+
