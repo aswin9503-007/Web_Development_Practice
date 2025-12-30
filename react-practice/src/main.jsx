@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./29-12-2025/Lazy_Load/App";
+import App from "./30-12-2025/React_Context/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
