@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-links li:hover {
+  color: #0070f3;
+  transform: scale(1.05);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 40px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+.hero p {
+  margin-top: 15px;
+}
+
+/* Selector */
+.selector {
+  padding: 60px 40px;
+}
+.selector h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.selectors {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+.selector ul {
+  list-style: none;
+}
+.selector li {
+  margin: 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.selector li:hover {
+  color: #0070f3;
+}
+
+/* Featured Stories */
+.featured-results {
+  padding: 60px 40px;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.result-card {
+  border: 1px solid #ddd;
+  padding: 24px;
+  border-radius: 6px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.result-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Insights */
+.insights-preview {
+  padding: 60px 40px;
+  text-align: center;
+}
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.insight-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+.insight-card h3 {
+  margin-top: 12px;
+}
+.insight-card p {
+  color: #555;
+}
+.insight-card button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.insight-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* Footer */
+.footer {
+  background: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .results-grid, .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  .selectors {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
