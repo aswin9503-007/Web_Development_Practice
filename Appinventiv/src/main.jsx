@@ -8,6 +8,8 @@ import StatsGrid from './Component/StatsSection'
 import CTASection from './Component/CTASection'
 import CaseStudyScroll from './Component/CaseStudyScroll'
 import Testimonials from './Component/Testimonials'
+import EngineeringServices from './Component/EngineeringServices'
+import ROISection from './Component/ROISection'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,5 +20,7 @@ createRoot(document.getElementById('root')).render(
     <CTASection />
     <CaseStudyScroll />
     <Testimonials />
+    <EngineeringServices />
+    <ROISection />
   </StrictMode>,
 )
