@@ -13,6 +13,8 @@ import ROISection from './Component/ROISection'
 import TechSolution from './Component/TechSolution'
 import PartnershipGrid from './Component/PartnershipGrid'
 import InventivAI from './Component/InventivAI'
+import AccoladerSlider from './Component/AccoladesSlider'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,6 +30,6 @@ createRoot(document.getElementById('root')).render(
     <TechSolution />
     <InventivAI />
     <PartnershipGrid />
-    
+    <AccoladerSlider />
   </StrictMode>,
 )
