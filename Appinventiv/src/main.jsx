@@ -10,6 +10,9 @@ import CaseStudyScroll from './Component/CaseStudyScroll'
 import Testimonials from './Component/Testimonials'
 import EngineeringServices from './Component/EngineeringServices'
 import ROISection from './Component/ROISection'
+import TechSolution from './Component/TechSolution'
+import PartnershipGrid from './Component/PartnershipGrid'
+import InventivAI from './Component/InventivAI'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,5 +25,9 @@ createRoot(document.getElementById('root')).render(
     <Testimonials />
     <EngineeringServices />
     <ROISection />
+    <TechSolution />
+    <InventivAI />
+    <PartnershipGrid />
+    
   </StrictMode>,
 )
