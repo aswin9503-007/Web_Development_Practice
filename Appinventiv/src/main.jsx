@@ -16,6 +16,8 @@ import InventivAI from './Component/InventivAI'
 import AccoladerSlider from './Component/AccoladesSlider'
 import CliensOpinion from './Component/ClientsOpinion'
 import Industry from './Component/Industry'
+import MarketingBanner from './Component/MarketingBanner'
+import StrategicPartners from './Component/StrategicPartners'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -34,5 +36,7 @@ createRoot(document.getElementById('root')).render(
     <AccoladerSlider />
     <CliensOpinion />
     <Industry /> 
+    <MarketingBanner />
+    <StrategicPartners />
   </StrictMode>,
 )
