@@ -1,0 +1,153 @@
+.capabilities-section {
+  padding: clamp(40px, 10vw, 100px) 20px; /* Fluid padding */
+  background-color: #080808;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.cap-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  /* Scales font-size between 1.8rem and 3rem based on screen size */
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: clamp(30px, 8vw, 60px);
+  border-left: 5px solid #3B82F6;
+  padding-left: 20px;
+  line-height: 1.2;
+}
+
+.cap-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 40px);
+}
+
+.cap-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: clamp(20px, 5vw, 50px);
+  border-radius: 24px;
+  border: 1px solid #222;
+  gap: 30px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect only for devices that support hover */
+@media (hover: hover) {
+  .cap-item:hover {
+    transform: scale(1.01);
+    border-color: #3B82F6;
+  }
+}
+
+.cap-info {
+  flex: 1.2;
+}
+
+.cap-info h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 15px;
+  color: #3B82F6;
+}
+
+.cap-info p {
+  color: #aaa;
+  line-height: 1.6;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  margin-bottom: 25px;
+}
+
+.feature-tags {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  flex-wrap: wrap; /* Important for small screens */
+}
+
+.feature-tags li {
+  background: #1a1a1a;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: #00ffcc;
+  border: 1px solid #333;
+  white-space: nowrap;
+}
+
+/* Abstract data visual */
+.cap-visual-placeholder {
+  flex: 0.8;
+  background: #000;
+  min-height: 180px;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #1a1a1a;
+}
+
+.data-line {
+  height: 6px;
+  background: #1a1a1a;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.data-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, #3B82F6, #00ffcc);
+  animation: loading 2s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* TABLET & MOBILE BREAKPOINT */
+@media (max-width: 968px) {
+  .cap-item {
+    flex-direction: column; /* Stacks text and visual */
+    text-align: left;
+    gap: 30px;
+  }
+
+  .cap-info {
+    width: 100%;
+  }
+
+  .cap-visual-placeholder {
+    width: 100%;
+    min-height: 150px;
+  }
+}
+
+/* SMALL MOBILE BREAKPOINT */
+@media (max-width: 480px) {
+  .capabilities-section {
+    padding: 40px 15px;
+  }
+
+  .cap-item {
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .feature-tags li {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}

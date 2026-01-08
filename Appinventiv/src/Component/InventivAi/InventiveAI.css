@@ -1,0 +1,155 @@
+:root {
+  --primary-glow: #007bff;
+  --secondary-glow: #00ffcc;
+  --bg-dark: #080808;
+  --card-bg: #121212;
+}
+
+.ai-page {
+  background-color: var(--bg-dark);
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  overflow-x: hidden;
+}
+
+.ai-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section */
+.ai-hero-section {
+  padding: 160px 0 80px;
+  text-align: center;
+}
+
+.ai-badge {
+  background: rgba(0, 123, 255, 0.15);
+  color: var(--primary-glow);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.ai-main-title {
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 24px 0;
+}
+
+.ai-main-title span {
+  background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ai-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #a0a0a0;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.ai-cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ai-btn-primary {
+  background: var(--primary-glow);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-btn-secondary:hover {
+  border-color: var(--primary-glow);
+}
+
+/* Grid System */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.ai-card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #1a1a1a;
+  transition: 0.4s;
+}
+
+.ai-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-glow);
+}
+
+.ai-card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.ai-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.ai-card p {
+  color: #888;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 1024px) {
+  .ai-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-hero-section {
+    padding: 120px 0 60px;
+  }
+  
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ai-cta-group {
+    flex-direction: column;
+  }
+  
+  .ai-btn-primary, .ai-btn-secondary {
+    width: 100%;
+  }
+}

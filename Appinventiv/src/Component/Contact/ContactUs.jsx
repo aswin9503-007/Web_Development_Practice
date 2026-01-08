@@ -17,7 +17,6 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      
       const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
         headers: {
@@ -29,7 +28,7 @@ const ContactUs = () => {
       const result = await response.json();
 
       if (response.ok) {
-        alert(result.message); 
+        alert(result.message);
         // Reset the form fields
         setFormData({ name: "", email: "", subject: "", message: "" });
         e.target.reset();
@@ -47,7 +46,7 @@ const ContactUs = () => {
   return (
     <section className="contact-section">
       <div className="contact-container">
-        {/* LEFT COLUMN: BRANDING & INFO */}
+        
         <div className="contact-info">
           <h2 className="heavy-heading">
             Let's Build Something <br />
@@ -76,7 +75,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: CONTACT FORM */}
+        
         <div className="contact-form-box">
           <form onSubmit={handleSubmit}>
             <div className="input-group">
@@ -85,6 +84,7 @@ const ContactUs = () => {
                 name="name"
                 placeholder="Full Name"
                 required
+                value={formData.name} 
                 onChange={handleChange}
               />
               <input
@@ -92,6 +92,7 @@ const ContactUs = () => {
                 name="email"
                 placeholder="Email Address"
                 required
+                value={formData.email} 
                 onChange={handleChange}
               />
             </div>
@@ -100,6 +101,7 @@ const ContactUs = () => {
               name="subject"
               placeholder="Subject"
               required
+              value={formData.subject} 
               onChange={handleChange}
             />
             <textarea
@@ -107,6 +109,7 @@ const ContactUs = () => {
               placeholder="Tell us about your project"
               rows="5"
               required
+              value={formData.message} 
               onChange={handleChange}
             ></textarea>
 
