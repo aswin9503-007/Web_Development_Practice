@@ -1,5 +1,17 @@
+import {useEffect, useState} from "react";
 
 const Hero = () => {
+  const [hero, setHero] = useState(null);
+
+  useEffect (() => {
+    fetch("https://appiventiv-backend.onrender.com/api/hero")
+    .then((res) => res.json())
+    .then((data) => setHero(data))
+    .catch((err) => console.error(err));
+  }, []);
+
+  if (!hero) return null;
+  
   return (
     <section className="hero-container">
       {/* Background Image */}
@@ -13,16 +25,14 @@ const Hero = () => {
 
       <div className="hero-content">
         <h1 className="hero-title">
-          Engineering Global Digital Disruption <br />
-          with AI-Native Solutions
+          {hero.title.split(" with ")[0]} <br />
+          with {hero.title.split(" with ")[1]}
+
         </h1>
 
         <p className="hero-description">
-          We are a Deloitte Technology Fast 50 company and a Clutch Global Award
-          2025 winner for unmatched customer excellence. Our mission is to
-          leverage AI-driven automation and strategic innovation to craft
-          digital solutions that not only meet but anticipate your business
-          needs, ensuring sustainable market leadership.
+          {hero.description}
+
         </p>
 
         <button className="consult-btn">
