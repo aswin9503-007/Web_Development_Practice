@@ -4,7 +4,7 @@ const Hero = () => {
   const [hero, setHero] = useState(null);
 
   useEffect (() => {
-    fetch("https://appiventiv-backend.onrender.com/api/hero")
+    fetch("https://appiventiv-backend.vercel.app/api/hero")
     .then((res) => res.json())
     .then((data) => setHero(data))
     .catch((err) => console.error(err));
