@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { api } from "../../services/api"; // Ensure you add stats to your api service
 
 const StatsGrid = () => {
   const [stats, setStats] = useState([]);

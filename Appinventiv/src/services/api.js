@@ -46,7 +46,7 @@ export const api = {
   },
 
   // StatsSection
-
+  
   stats: {
     getAll: () => fetch(`${BASE_URL}/stats`).then(handleResponse),
     add: (data) =>
