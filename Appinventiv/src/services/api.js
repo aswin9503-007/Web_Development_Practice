@@ -46,7 +46,7 @@ export const api = {
   },
 
   // StatsSection
-  
+
   stats: {
     getAll: () => fetch(`${BASE_URL}/stats`).then(handleResponse),
     add: (data) =>
@@ -64,6 +64,17 @@ export const api = {
     delete: (id) =>
       fetch(`${BASE_URL}/stats/${id}`, {
         method: "DELETE",
+      }).then(handleResponse),
+  },
+
+  // --- CTA SECTION ---
+  cta: {
+    get: () => fetch(`${BASE_URL}/cta`).then(handleResponse),
+    update: (data) =>
+      fetch(`${BASE_URL}/cta/update`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       }).then(handleResponse),
   },
 };
