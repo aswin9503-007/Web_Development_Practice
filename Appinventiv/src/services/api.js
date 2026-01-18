@@ -77,4 +77,25 @@ export const api = {
         body: JSON.stringify(data),
       }).then(handleResponse),
   },
+
+  // --- CASE STUDIES SECTION ---
+  caseStudies: {
+    getAll: () => fetch(`${BASE_URL}/case-studies`).then(handleResponse),
+    create: (data) =>
+      fetch(`${BASE_URL}/case-studies/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }).then(handleResponse),
+    update: (id, data) =>
+      fetch(`${BASE_URL}/case-studies/update/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }).then(handleResponse),
+    delete: (id) =>
+      fetch(`${BASE_URL}/case-studies/delete/${id}`, {
+        method: "DELETE",
+      }).then(handleResponse),
+  },
 };

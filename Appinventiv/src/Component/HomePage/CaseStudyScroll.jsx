@@ -1,73 +1,58 @@
 import { useState, useEffect } from "react";
-
-
-const caseStudies = [
-  {
-    id: "ikea",
-    client: "IKEA",
-    title: "Expands as a digital consumer experience leader",
-    results: [
-      { val: "7+", lab: "Stores using the solution" },
-      { val: "#1", lab: "Source of measuring RoI" },
-    ],
-    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070",
-  },
-  {
-    id: "pizza-hut",
-    client: "Pizza Hut",
-    title: "Unlocks conversation boost with top-tier app development",
-    results: [
-      { val: "30%", lab: "Higher conversation" },
-      { val: "50K+", lab: "App Downloads" },
-    ],
-    img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070",
-  },
-  {
-    id: "americana",
-    client: "Americana",
-    title: "A reliable data platform built with automated ETL and Power BI",
-    results: [
-      { val: "100%", lab: "increase in efficiency" },
-      { val: "Zero", lab: "platform downtime" },
-    ],
-    img: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=2070",
-  },
-];
+import { api } from "../../services/api";
 
 const CaseStudyScroll = () => {
-  const [activeId, setActiveId] = useState(caseStudies[0].id);
+  const [caseStudies, setCaseStudies] = useState([]);
+  const [activeId, setActiveId] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHoveringRight, setIsHoveringRight] = useState(false);
+  const [loading, setLoading] = useState(true);
 
+  // 1. Fetch Data from API
   useEffect(() => {
+    api.caseStudies.getAll()
+      .then((data) => {
+        setCaseStudies(data);
+        if (data.length > 0) setActiveId(data[0].id);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Error fetching case studies:", err));
+  }, []);
+
+  // 2. Setup Intersection Observer for Scrolling
+  useEffect(() => {
+    if (caseStudies.length === 0) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            setActiveId(entry.target.dataset.id);
+            // dataset.id comes from the HTML attribute
+            setActiveId(parseInt(entry.target.dataset.id));
           }
         });
       },
-      {
-        rootMargin: "0px 0px -50% 0px",
-        threshold: [0, 0.5, 1],
-      }
+      { rootMargin: "0px 0px -50% 0px", threshold: [0, 0.5, 1] }
     );
 
     document.querySelectorAll(".cs-card-stack").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [caseStudies]); // Re-run when caseStudies are loaded
 
   const handleMouseMove = (e) => {
     setMousePos({ x: e.clientX, y: e.clientY });
   };
 
-  const activeData = caseStudies.find((s) => s.id === activeId);
+  if (loading || caseStudies.length === 0) {
+    return <div className="loader">Loading Case Studies...</div>;
+  }
+
+  const activeData = caseStudies.find((s) => s.id === activeId) || caseStudies[0];
   const activeIndex = caseStudies.findIndex((s) => s.id === activeId);
 
   return (
     <section className="cs-container">
-      
+      {/* Left Content Panel */}
       <div className="cs-left-panel">
         <div className="cs-content-box" key={activeId}>
           <span className="cs-tag">Case Study</span>
@@ -76,7 +61,7 @@ const CaseStudyScroll = () => {
           <div className="cs-results-wrapper">
             <span className="cs-results-heading">Results</span>
             <div className="cs-results-grid">
-              {activeData.results.map((res, i) => (
+              {activeData.results && activeData.results.map((res, i) => (
                 <div className="cs-res-item" key={i}>
                   <span className="cs-res-val">{res.val}</span>
                   <span className="cs-res-lab">{res.lab}</span>
@@ -90,7 +75,7 @@ const CaseStudyScroll = () => {
         </div>
       </div>
 
-      
+      {/* Right Image/Scroll Panel */}
       <div
         className="cs-right-panel"
         onMouseMove={handleMouseMove}
@@ -100,12 +85,12 @@ const CaseStudyScroll = () => {
         {caseStudies.map((study) => (
           <div className="cs-card-stack" data-id={study.id} key={study.id}>
             <div className="cs-card-frame">
-              <img src={study.img} alt={study.client} className="cs-card-img" />
+              <img src={study.img_url} alt={study.client} className="cs-card-img" />
             </div>
           </div>
         ))}
 
-        
+        {/* Floating Cursor */}
         <div
           className={`cs-floating-cursor ${isHoveringRight ? "visible" : ""}`}
           style={{
@@ -116,7 +101,7 @@ const CaseStudyScroll = () => {
           View case study
         </div>
 
-        
+        {/* Scroll Indicator */}
         <div className="cs-scroll-indicator-container">
           <div className="cs-scroll-track">
             <div
